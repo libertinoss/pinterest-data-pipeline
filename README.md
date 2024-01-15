@@ -11,7 +11,7 @@ This is a project which involved creating a system for extracting, storing, tran
 - **Databricks** - For data cleaning and transformation (batch and real-time processing) and SQL queries for identifying key metrics
 
 ## Installation and Initialisation
-The code for this project was created and tested using Python 3.12.0 with the *json*, *random*, *sqlalchemy* and *time* libraries. Running the **user_posting_emulation.py** script effectively initiates the data pipeline for batch processing via Kafka and Databricks while the **user_posting_emulation_streaming.py** script can be used for the streaming data pipeline via Kinesis. The data can then be transformed using Dabatabricks with the relevant notebooks that are included in this project directory. Please note that the detailed setup of the relevant AWS cloud infrastructure mentioned in the outline is outwith the scope of this readme.
+The code for this project was created and tested using Python 3.12.0 with the *json*, *random*, *sqlalchemy* and *time* libraries. Running the **user_posting_emulation.py** script effectively initiates the data pipeline for batch processing via Kafka and Databricks while the **user_posting_emulation_streaming.py** script can be used for the streaming data pipeline via Kinesis. The data can then be transformed using Dabatabricks with the relevant notebooks that are included in this project directory. Please note that detailed instructions for setting up the relevant AWS cloud infrastructure mentioned in the outline are outwith the scope of this readme, but the general setup is explained in the following section. 
 
 ## Project Structure
 ### Batch Processing Pipeline
@@ -25,7 +25,10 @@ The **user_posting_emulation.py** file is run which continually extracts data fr
 ![Alt text](images/api.png)
 An API has been set up on Amazon API Gateway, which communicates with the EC2 Machine via HTTP proxy integration. The EC2 machine has already been set up as a Kafka Client machine and has the Confluent REST Proxy service installed which enables the consumption of messages in the aforementioned topics in the MSK cluster when HTTP POST requests are made to the API. As shown above, the API has a proxy resource set up that is used for writing messages to each of these topics.  
 
-**3. 
+**3. MSK writes messages to S3 bucket**
+MSK has been set up with the Confluent.io Amazon S3 Connector in order to automatically write the messages in each of these topics to an S3 bucket as soon as they are received.
+
+
 
 ## File structure
 ```
