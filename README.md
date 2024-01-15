@@ -39,22 +39,21 @@ The image above showes the overall stucture of the pipeline for processing strea
 
 ## File structure
 ```
-├── __main__.py
-├── database_utils.py
-├── data_extraction.py
-├── data_cleaning.py
-├── sql_queries
-|    ├── creating_database_schema.sql
-|    └── querying_data_for_metrics.sql
-└── extracted_data
-    ├── card_details.csv
-    ├── card_details.pdf
-    ├── event_details.json
-    ├── order_details.csv
-    ├── product_details.csv
-    ├── product_details_weights_converted.csv
-    ├── store_details.csv
-    └── user_details.csv
+├── 0ad8a60ac12f_dag.py
+├── user_posting_emulation.py
+├── user_posting_emulation_streaming.py
+├── sql_queries.sql
+├── databricks_notebooks
+│   ├── batch_processing_notebook.ipynb
+│   └── streaming_processing_notebook.ipynb
+├── images
+│   ├── api.png
+│   ├── batch.png
+│   └── stream.png
+└── sample_dataframes
+    ├── df_geo.csv
+    ├── df_pin.csv
+    └── df_user.csv
 
 ```
 ### Python Files (.py)
