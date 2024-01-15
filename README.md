@@ -16,6 +16,7 @@ The code for this project was created and tested using Python 3.12.0 with the *j
 ## Project Structure
 ### Batch Processing Pipeline
 
+
 ## File structure
 ```
 ├── __main__.py
