@@ -3,10 +3,10 @@
 ## Outline
 This is a project which involved creating a system for extracting, storing, transforming and analysing emulated Pinterest post data through the creation of two data pipelines, with one for **batch processing** and one for **real-time processing** of streaming data. The aim of this project was to understand the process of building a fully functional data pipeline and improve my knowledge of various key data engineering software and tools, namely:
 - **Python** - For running the Pinterest posts emulation via AWS RDS queries and interacting with Kafka and AWS Kinesis through API requests
-- **Kafka (Using MSK)** - For ingesting the raw Pinterest data and writing it to topics in an S3 bucket for batch processing
+- **Kafka (Using MSK)** - For ingesting the raw Pinterest data and writing it to topics in an S3 bucket for batch processing in Databricks
 - **Amazon EC2** - For setting up a Kafka client machine
 - **Apache Airflow (Using MWAA)** - For scheduling batch processing tasks
-- **Amazon Kinesis** - For ingesting the raw Pinterest data as data streams for real-time processin
+- **Amazon Kinesis** - For ingesting the raw Pinterest data as data streams for real-time processing in Databricks
 - **Amazon API Gateway** - For deploying a REST API to interact with MSK and Kinesis
 - **Databricks** - For data cleaning and transformation (batch and real-time processing) and SQL queries for identifying key metrics
 
