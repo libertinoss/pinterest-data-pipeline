@@ -21,8 +21,11 @@ The image above showes the overall stucture of the pipeline for batch processing
 **1. Pipeline intitiated from Python Script**  
 The **user_posting_emulation.py** file is run which continually extracts data from random rows in the RDS database. The RDS database contains three tables containing data relevant to a post on pinterest (pinterest post data, geographical data and user data). This data is reformatted and sent as a payload of a HTTP POST request to an Amazon API Gateway Endpoint.
 
-**2. Amazon API Gateway communicates with EC2 Machine (Kafka Client)**
+**2. Amazon API Gateway communicates with EC2 Machine (Kafka Client) and MSK Cluster**
 ![Alt text](images/api.png)
+An API has been set up on Amazon API Gateway, which communicates with the EC2 Machine via HTTP proxy integration. The EC2 machine has already been set up as a Kafka Client machine and has the Confluent REST Proxy service installed which enables the consumption of messages in the aforementioned topics in the MSK cluster when HTTP POST requests are made to the API. As shown above, the API has a proxy resource set up as shown above that is used for writing messages to each of these topics.  
+
+**3
 
 ## File structure
 ```
