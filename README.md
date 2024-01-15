@@ -21,7 +21,8 @@ The image above showes the overall stucture of the pipeline for batch processing
 **1. Pipeline intitiated from Python Script**  
 The **user_posting_emulation.py** file is run which continually extracts data from random rows in the RDS database. The RDS database contains three tables containing data relevant to a post on pinterest (pinterest post data, geographical data and user data). This data is reformatted and sent as a payload of a HTTP POST request to an Amazon API Gateway Endpoint.
 
-**2. 
+**2. Amazon API Gateway communicates with EC2 Machine (Kafka Client)**
+![Alt text](images/api.png)
 
 ## File structure
 ```
