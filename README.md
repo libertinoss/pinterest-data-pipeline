@@ -16,7 +16,8 @@ The code for this project was created and tested using Python 3.12.0 with the *j
 ## Project Structure
 ### Batch Processing Pipeline
 ![Alt text](images/batch.png)
-The image above showes the overall stucture of the pipeline for batch processing. Breaking it down into steps:  
+The image above showes the overall stucture of the pipeline for batch processing. Breaking it down into steps: 
+  
 **1. Pipeline intitiated from Python Script**
 Blah blah
 
