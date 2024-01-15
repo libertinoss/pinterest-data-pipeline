@@ -23,9 +23,9 @@ The **user_posting_emulation.py** file is run which continually extracts data fr
 
 **2. Amazon API Gateway communicates with EC2 Machine (Kafka Client) and MSK Cluster**
 ![Alt text](images/api.png)
-An API has been set up on Amazon API Gateway, which communicates with the EC2 Machine via HTTP proxy integration. The EC2 machine has already been set up as a Kafka Client machine and has the Confluent REST Proxy service installed which enables the consumption of messages in the aforementioned topics in the MSK cluster when HTTP POST requests are made to the API. As shown above, the API has a proxy resource set up as shown above that is used for writing messages to each of these topics.  
+An API has been set up on Amazon API Gateway, which communicates with the EC2 Machine via HTTP proxy integration. The EC2 machine has already been set up as a Kafka Client machine and has the Confluent REST Proxy service installed which enables the consumption of messages in the aforementioned topics in the MSK cluster when HTTP POST requests are made to the API. As shown above, the API has a proxy resource set up that is used for writing messages to each of these topics.  
 
-**3
+**3. 
 
 ## File structure
 ```
