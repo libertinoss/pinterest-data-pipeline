@@ -16,7 +16,7 @@ The code for this project was created and tested using Python 3.12.0 with the *j
 ## Project Structure
 ### Batch Processing Pipeline
 ![Alt text](images/batch.png)
-The image above showes the overall stucture of the pipeline for batch processing. Breaking it down into steps: 
+The image above showes the overall stucture of the pipeline for batch processing. Breaking it down into four main steps: 
   
 **1. Pipeline intitiated from Python Script**  
 The **user_posting_emulation.py** file is run which continually extracts data from random rows in the RDS database. The RDS database contains three tables containing data relevant to a post on pinterest (pinterest post data, geographical data and user data). This data is reformatted and sent as a payload of a HTTP POST request to an Amazon API Gateway Endpoint.
@@ -28,7 +28,14 @@ An API has been set up on Amazon API Gateway, which communicates with the EC2 Ma
 **3. MSK writes messages to S3 bucket**
 MSK has been set up with the Confluent.io Amazon S3 Connector in order to automatically write the messages in each of these topics to an S3 bucket as soon as they are received.
 
+**4. Scheduled batch processing carried out using Databricks and MWAA**
+Using a Databricks notebook, the S3 bucket is mounted to the Databricks File System, which enables the series of json messages to be transformed into three dataframes, one for each of the topics. These dataframes are then cleaned and transformed (cleaning erroneous values and concatenating, renaming, reordering columns) and queried to obtain a range of insights on the data.
 
+Using Apache Airflow (through Amazon MWAA) a DAG is defined that runs the Databricks notebook daily so that the fresh messages from the S3 bucket can be processed. 
+
+### Streaming Pipeline
+![Alt text](images/stream.png)
+The image above showes the overall stucture of the pipeline for processing streaming data. It is largely similar to the batch processing pipeline, with the key difference being that the API is used to communicate with Amazon Kinesis with AWS service integration. Databricks is then able to consume messages and carry out the same data transformation tasks in real-time. 
 
 ## File structure
 ```
