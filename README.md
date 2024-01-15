@@ -3,21 +3,18 @@
 ## Outline
 This is a project which involved creating a system for extracting, storing, transforming and analysing emulated Pinterest post data through the creation of two data pipelines, with one for **batch processing** and one for **real-time processing** of streaming data. The aim of this project was to understand the process of building a fully functional data pipeline and improve my knowledge of various key data engineering software and tools, namely:
 - **Python** - For running the Pinterest posts emulation via AWS RDS queries and interacting with Kafka and AWS Kinesis through API requests
-- **Kafka (Using MSK)** - For ingesting the raw Pinterest data and writing it to topics in an S3 bucket for batch processing in Databricks
+- **Kafka (Using Amazon MSK)** - For ingesting the raw Pinterest data and writing it to topics in an S3 bucket for batch processing in Databricks
 - **Amazon EC2** - For setting up a Kafka client machine
-- **Apache Airflow (Using MWAA)** - For scheduling batch processing tasks
+- **Apache Airflow (Using Amazon MWAA)** - For scheduling batch processing tasks
 - **Amazon Kinesis** - For ingesting the raw Pinterest data as data streams for real-time processing in Databricks
 - **Amazon API Gateway** - For deploying a REST API to interact with MSK and Kinesis
 - **Databricks** - For data cleaning and transformation (batch and real-time processing) and SQL queries for identifying key metrics
 
-
 ## Installation and Initialisation
-This project was created and tested using Python 3.11.4 and PostgreSQL 16. The entire data pipeline (from data extraction through to cleaning and uploading) can be executed using the **__main__.py** file, and the relevant SQL queries in terms of creating the database schema and obtaining a range of business metrics are in the **sql_queries/** folder in the directory. 
+The code for this project was created and tested using Python 3.12.0 with the *json*, *random*, *sqlalchemy* and *time* libraries. Running the **user_posting_emulation.py** script effectively initiates the data pipeline for batch processing via Kafka and Databricks while the **user_posting_emulation_streaming.py** script can be used for the streaming data pipeline via Kinesis. The data can then be transformed using Dabatabricks with the relevant notebooks that are included in this project directory. Please note that the detailed setup of the relevant AWS cloud infrastructure mentioned in the outline is outwith the scope of this readme.
 
 ## Project Structure
-As mentioned previously, running the **__main__.py** script executes the entire data pipeline. To add clarity for the user, there are status updates and relevant messages displayed throughout the execution of each individual extraction, cleaning and uploading function so it is clear what is happening at every stage. There is also basic error handling for common issues that might occur, indicating what is causing the problem. The code for data cleaning includes numerous print statements which indicate the overall workflow and logic of how each individual dataset was cleaned, but this is only displayed when the **__data_cleaning.py__** script is run directly so as to prevent unnecessary output clutter.
-
-The files in the **sql_queries/** folder contain numerous queries that are clearly annotated as to what they are achieving in terms of database alterations and obtaining business metrics. They should be run in the order that they have been written in the .sql files to achieve the desired results. 
+### Batch Processing Pipeline
 
 ## File structure
 ```
