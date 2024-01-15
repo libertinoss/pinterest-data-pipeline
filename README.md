@@ -21,14 +21,14 @@ The image above showes the overall stucture of the pipeline for batch processing
 **1. Pipeline intitiated from Python Script**  
 The **user_posting_emulation.py** file is run which continually extracts data from random rows in the RDS database. The RDS database contains three tables containing data relevant to a post on Pinterest (Pinterest post data, geographical data and user data). This data is reformatted and sent as a payload of a HTTP POST request to an Amazon API Gateway Endpoint.
 
-**2. Amazon API Gateway communicates with EC2 Machine (Kafka Client) and MSK Cluster**
+**2. Amazon API Gateway communicates with EC2 Machine (Kafka Client) and MSK Cluster**  
 ![Alt text](images/api.png)
 An API has been set up on Amazon API Gateway, which communicates with the EC2 Machine via HTTP proxy integration. The EC2 machine has already been set up as a Kafka Client machine, has been used to create three topics in the MSK cluster and has the Confluent REST Proxy service installed which enables the consumption of messages in the cluster when HTTP POST requests are made to the API. As shown above, the API has a proxy resource set up that is used for writing messages to each of these topics.  
 
-**3. MSK writes messages to S3 bucket**
+**3. MSK writes messages to S3 bucket**  
 MSK has been set up with the Confluent.io Amazon S3 Connector in order to automatically write the messages from each of these topics to appropriate subdirectories in an S3 bucket as soon as they are received.
 
-**4. Scheduled batch processing carried out using Databricks and MWAA**
+**4. Scheduled batch processing carried out using Databricks and MWAA**  
 Using a Databricks notebook, the S3 bucket is mounted to the Databricks File System, which enables the series of json messages to be transformed into three dataframes, one for each of the topics. These dataframes are then cleaned and transformed (cleaning erroneous values and concatenating, renaming, reordering columns) and queried with Databricks SQL to obtain a range of insights on the data.
 
 Using Apache Airflow (through Amazon MWAA) a DAG is defined that runs the Databricks notebook daily so that the fresh messages from the S3 bucket can be processed. 
