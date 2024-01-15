@@ -60,11 +60,17 @@ The image above showes the overall stucture of the pipeline for processing strea
 - *user_posting_emulation.py* - Code for emulating user posting data, which is sent to Kafka via API for batch processing pipeline
 - *user_posting_emulation_streaming.py* - Code for emulating user posting data and sending to Kinesis streams via API for streaming pipeline
 
-### Databricks Notebooks (.ipynb)
-These are the databricks notebooks used for processing the raw pinterest data in real time and daily batches. 
+### sql_queries.sql
+This file contains all of the SQL queries performed on the cleaned dataframes, and what insights they are trying to uncover
+
+### Databricks Notebooks Folder (.ipynb)
+This contains databricks notebooks used for processing the raw pinterest data in real time and daily batches
   
-### Extracted Data Files
-These are the files containing the raw data from the numerous sources mentioned above, which are then used by the functions in the **data_extraction.py** module. They are downloaded automatically into this location upon running the **__main__.py** script but are included here for clarity, as some of the extraction methods require credentials that are not included in this remote directory.
+### Sample Dataframes Folder (.csv)
+This contains sample dataframes that have been converted to csv and downloaded before batch databricks, to give an understanding of the data used in this project (and so indirectly the relevant transformations and SQL queries)
+
+### Images folder
+This contains the images used in this readme
 
 ## License information
 This is free and unencumbered software released into the public domain.
