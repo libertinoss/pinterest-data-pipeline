@@ -18,8 +18,10 @@ The code for this project was created and tested using Python 3.12.0 with the *j
 ![Alt text](images/batch.png)
 The image above showes the overall stucture of the pipeline for batch processing. Breaking it down into steps: 
   
-**1. Pipeline intitiated from Python Script**
-Blah blah
+**1. Pipeline intitiated from Python Script**  
+The **user_posting_emulation.py** file is run which continually extracts data from random rows in the RDS database. The RDS database contains three tables containing data relevant to a post on pinterest (pinterest post data, geographical data and user data). This data is reformatted and sent as a payload of a HTTP POST request to an Amazon API Gateway Endpoint.
+
+**2. 
 
 ## File structure
 ```
