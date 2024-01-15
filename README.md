@@ -11,7 +11,7 @@ This is a project which involved creating a system for extracting, storing, tran
 - **Databricks** - For data cleaning and transformation (batch and real-time processing) and SQL queries for identifying key metrics
 
 ## Installation and Initialisation
-The code for this project was created and tested using Python 3.12.0 with the *json*, *random*, *sqlalchemy* and *time* libraries. Running the **user_posting_emulation.py** script effectively initiates the data pipeline for batch processing via Kafka and Databricks while the **user_posting_emulation_streaming.py** script can be used for the streaming data pipeline via Kinesis. The data can then be transformed using Dabatabricks with the relevant notebooks that are included in this project directory. Please note that detailed instructions for setting up the relevant AWS cloud infrastructure mentioned in the outline are outwith the scope of this readme, but the general setup is explained in the following section. 
+The code for this project was created and tested using Python 3.12.0 with the *json*, *random*, *sqlalchemy* and *time* libraries. Running the **user_posting_emulation.py** script effectively initiates the data pipeline for batch processing via Kafka while the **user_posting_emulation_streaming.py** script can be used for the streaming data pipeline via Kinesis. The data can then be transformed using Dabatabricks with the relevant notebooks that are included in this project directory. Please note that detailed instructions for setting up the relevant AWS cloud infrastructure mentioned in the outline are outwith the scope of this readme, but the general setup is explained in the following section. 
 
 ## Project Structure
 ### Batch Processing Pipeline
