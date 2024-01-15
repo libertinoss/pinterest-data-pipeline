@@ -46,25 +46,22 @@ The image above showes the overall stucture of the pipeline for processing strea
 ├── databricks_notebooks
 │   ├── batch_processing_notebook.ipynb
 │   └── streaming_processing_notebook.ipynb
-├── images
-│   ├── api.png
-│   ├── batch.png
-│   └── stream.png
-└── sample_dataframes
-    ├── df_geo.csv
-    ├── df_pin.csv
-    └── df_user.csv
-
+├── sample_dataframes
+|   ├── df_geo.csv
+|   ├── df_pin.csv
+|   └── df_user.csv
+└── images
+    ├── api.png
+    ├── batch.png
+    └── stream.png
 ```
 ### Python Files (.py)
-- *\__main\__.py* - Main script for the complete data pipeline
-- *database_utils.py* - Code for establishing connection interface with local and cloud-based SQL databases
-- *data_extraction.py* - Code for extracting relevant datasets from a range of sources online (Amazon RDS instance, S3 bucket, pdf table, AWS API endpoint)
-- *data_cleaning.py* - Code for cleaning each dataset with a variety of techniques within the Pandas library
+- *0ad8a60ac12f_dag.py* - Script for DAG which runs databricks notebook daily
+- *user_posting_emulation.py* - Code for emulating user posting data, which is sent to Kafka via API for batch processing pipeline
+- *user_posting_emulation_streaming.py* - Code for emulating user posting data and sending to Kinesis streams via API for streaming pipeline
 
-### SQL Files (.sql)
-- *creating_database_schema.sql* - SQL queries for creating database schema, including setting data types and primary and foreign key constraints
-- *querying_data_for_metrics.sql* - SQL queries for obtaining a range of business metrics surrounding sales through the usage of aggregate functions, joins, subqueries etc
+### Databricks Notebooks (.ipynb)
+These are the databricks notebooks used for processing the raw pinterest data in real time and daily batches. 
   
 ### Extracted Data Files
 These are the files containing the raw data from the numerous sources mentioned above, which are then used by the functions in the **data_extraction.py** module. They are downloaded automatically into this location upon running the **__main__.py** script but are included here for clarity, as some of the extraction methods require credentials that are not included in this remote directory.
