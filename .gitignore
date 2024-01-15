@@ -3,3 +3,4 @@ iam_role_arn.txt
 testing.py
 testapi.py
 kafkaconsumers.py
+test_stream.py
